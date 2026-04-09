@@ -288,6 +288,8 @@ def convert_to_tuples_format(history):
             else:
                 # Assistant message without preceding user message
                 tuples.append([None, content])
+        elif isinstance(item, str):
+            tuples.append([None, item])
         i += 1
     return tuples
 
@@ -2075,7 +2077,7 @@ Generative Adversarial Networks (GANs) are a class of machine learning framework
                 outputs=[a2a_chatbot],
                 api_name=False
             )
-            a2a_clear_button.click(lambda: None, None, a2a_chatbot, queue=False, api_name=False)
+            a2a_clear_button.click(lambda: [], None, a2a_chatbot, queue=False, api_name=False)
             # a2a_status_button removed from Chat tab
             
             # Checkbox event listener removed
